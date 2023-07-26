@@ -20,6 +20,7 @@ Object {
           },
         },
         "Description": "rate limit rule group",
+        "Name": "rate-limit-rule-group",
         "Rules": Array [
           Object {
             "Action": Object {
@@ -35,7 +36,7 @@ Object {
             "Statement": Object {
               "RateBasedStatement": Object {
                 "AggregateKeyType": "IP",
-                "Limit": 30000,
+                "Limit": 3000,
               },
             },
             "VisibilityConfig": Object {
