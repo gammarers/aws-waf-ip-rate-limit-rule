@@ -7,6 +7,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   name: '@gammarer/aws-waf-rate-limit-rule-group',
   projenrcTs: true,
   repositoryUrl: 'https://github.com/yicr/aws-waf-rate-limit-rule-group.git',
+  description: 'This is an AWS CDK Construct for Rate Limit Rule on WAF V2.',
   keywords: ['aws', 'cdk', 'aws-cdk', 'waf', 'acl', 'rate'],
   releaseToNpm: true,
   npmAccess: javascript.NpmAccess.PUBLIC,
