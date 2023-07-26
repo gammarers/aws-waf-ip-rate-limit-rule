@@ -8,8 +8,20 @@ const project = new awscdk.AwsCdkConstructLibrary({
   projenrcTs: true,
   repositoryUrl: 'https://github.com/yicr/aws-waf-rate-limit-rule-group.git',
   keywords: ['aws', 'cdk', 'aws-cdk', 'waf', 'acl', 'rate'],
-  releaseToNpm: false,
+  releaseToNpm: true,
   npmAccess: javascript.NpmAccess.PUBLIC,
   stability: 'experimental', // stable
+  minNodeVersion: '16.0.0',
+  workflowNodeVersion: '16.19.1',
+  depsUpgradeOptions: {
+    workflowOptions: {
+      labels: ['auto-approve', 'auto-merge'],
+      schedule: javascript.UpgradeDependenciesSchedule.expressions(['0 19 * * *']),
+    },
+  },
+  autoApproveOptions: {
+    secret: 'GITHUB_TOKEN',
+    allowedUsernames: ['yicr'],
+  },
 });
 project.synth();
