@@ -18,12 +18,6 @@ npm install @gammarer/aws-waf-rate-limit-rule-group
 yarn add @gammarer/aws-waf-rate-limit-rule-group
 ```
 
-### Python
-
-```shell
-pip install @gammarer/aws-waf-rate-limit-rule-group
-```
-
 ## Example
 
 ```typescript
