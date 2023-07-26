@@ -10,5 +10,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
   keywords: ['aws', 'cdk', 'aws-cdk', 'waf', 'acl', 'rate'],
   releaseToNpm: false,
   npmAccess: javascript.NpmAccess.PUBLIC,
+  stability: 'experimental', // stable
 });
 project.synth();
