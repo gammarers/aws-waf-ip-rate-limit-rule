@@ -1,13 +1,13 @@
 import * as waf from 'aws-cdk-lib/aws-wafv2';
 import { Construct } from 'constructs';
 
-export interface WafRateLimitRuleGroupProps {
+export interface WafIpRateLimitRuleGroupProps {
   readonly name?: string;
   readonly rateLimitCount?: number;
 }
 
-export class WafRateLimitRuleGroup extends waf.CfnRuleGroup {
-  constructor(scope: Construct, id: string, props?: WafRateLimitRuleGroupProps) {
+export class WafIpRateLimitRuleGroup extends waf.CfnRuleGroup {
+  constructor(scope: Construct, id: string, props?: WafIpRateLimitRuleGroupProps) {
     super(scope, id, {
       name: props?.name,
       description: 'rate limit rule group',

@@ -1,7 +1,7 @@
 import { App, Stack } from 'aws-cdk-lib';
 import { Match, Template } from 'aws-cdk-lib/assertions';
 import * as waf from 'aws-cdk-lib/aws-wafv2';
-import { WafRateLimitRuleGroup } from '../src';
+import { WafIpRateLimitRuleGroup } from '../src';
 
 describe('Web Acl rule specific group testing', () => {
 
@@ -13,7 +13,7 @@ describe('Web Acl rule specific group testing', () => {
     },
   });
 
-  const ruleGroup = new WafRateLimitRuleGroup(stack, 'WafRateLimitRuleGroup', {
+  const ruleGroup = new WafIpRateLimitRuleGroup(stack, 'WafIpRateLimitRuleGroup', {
     name: 'rate-limit-rule-group',
     rateLimitCount: 3000,
   });
