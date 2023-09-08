@@ -1,6 +1,6 @@
-# AWS WAF Rete Limit Rule Group
+# AWS WAF IP Rete Limit Rule Group
 
-This is an AWS CDK Construct for Rate Limit Rule on WAF V2
+This is an AWS CDK Construct for IP Rate Limit Rule on WAF V2
 
 ## Resources
 
@@ -13,17 +13,17 @@ This construct creating resource list.
 ### TypeScript
 
 ```shell
-npm install @gammarer/aws-waf-rate-limit-rule-group
+npm install @gammarer/aws-waf-ip-rate-limit-rule-group
 # or
-yarn add @gammarer/aws-waf-rate-limit-rule-group
+yarn add @gammarer/aws-waf-ip-rate-limit-rule-group
 ```
 
 ## Example
 
 ```typescript
-import { WafRateLimitRuleGroup } from '@gammarer/aws-waf-rate-limit-rule-group';
+import { WafRateLimitRuleGroup } from '@gammarer/aws-waf-ip-rate-limit-rule-group';
 
-new WafRateLimitRuleGroup(stack, 'WafRateLimitRuleGroup', {
+new WafIpRateLimitRuleGroup(stack, 'WafIpRateLimitRuleGroup', {
   name: 'rate-limit-rule-group',
   rateLimitCount: 3000, // default 1000
 });
