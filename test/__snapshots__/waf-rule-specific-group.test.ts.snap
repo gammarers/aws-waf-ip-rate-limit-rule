@@ -10,7 +10,7 @@ Object {
     },
   },
   "Resources": Object {
-    "WafRateLimitRuleGroup": Object {
+    "WafIpRateLimitRuleGroup": Object {
       "Properties": Object {
         "Capacity": 10,
         "CustomResponseBodies": Object {
