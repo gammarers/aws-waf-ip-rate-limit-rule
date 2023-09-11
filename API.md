@@ -21,10 +21,11 @@ yarn add @gammarer/aws-waf-ip-rate-limit-rule-group
 ## Example
 
 ```typescript
-import { WafRateLimitRuleGroup } from '@gammarer/aws-waf-ip-rate-limit-rule-group';
+import { Scope, WafRateLimitRuleGroup } from '@gammarer/aws-waf-ip-rate-limit-rule-group';
 
 new WafIpRateLimitRuleGroup(stack, 'WafIpRateLimitRuleGroup', {
   name: 'rate-limit-rule-group',
+  scope: Scope.REGIONAL,
   rateLimitCount: 3000, // default 1000
 });
 
@@ -47,7 +48,7 @@ This project is licensed under the Apache-2.0 License.
 ```typescript
 import { WafIpRateLimitRuleGroup } from '@gammarer/aws-waf-ip-rate-limit-rule-group'
 
-new WafIpRateLimitRuleGroup(scope: Construct, id: string, props?: WafIpRateLimitRuleGroupProps)
+new WafIpRateLimitRuleGroup(scope: Construct, id: string, props: WafIpRateLimitRuleGroupProps)
 ```
 
 | **Name** | **Type** | **Description** |
@@ -76,7 +77,7 @@ A regional application can be an Application Load Balancer (ALB), an Amazon API 
 
 ---
 
-##### `props`<sup>Optional</sup> <a name="props" id="@gammarer/aws-waf-ip-rate-limit-rule-group.WafIpRateLimitRuleGroup.Initializer.parameter.props"></a>
+##### `props`<sup>Required</sup> <a name="props" id="@gammarer/aws-waf-ip-rate-limit-rule-group.WafIpRateLimitRuleGroup.Initializer.parameter.props"></a>
 
 - *Type:* <a href="#@gammarer/aws-waf-ip-rate-limit-rule-group.WafIpRateLimitRuleGroupProps">WafIpRateLimitRuleGroupProps</a>
 
@@ -904,8 +905,19 @@ const wafIpRateLimitRuleGroupProps: WafIpRateLimitRuleGroupProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#@gammarer/aws-waf-ip-rate-limit-rule-group.WafIpRateLimitRuleGroupProps.property.scope">scope</a></code> | <code><a href="#@gammarer/aws-waf-ip-rate-limit-rule-group.Scope">Scope</a></code> | *No description.* |
 | <code><a href="#@gammarer/aws-waf-ip-rate-limit-rule-group.WafIpRateLimitRuleGroupProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@gammarer/aws-waf-ip-rate-limit-rule-group.WafIpRateLimitRuleGroupProps.property.rateLimitCount">rateLimitCount</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@gammarer/aws-waf-ip-rate-limit-rule-group.WafIpRateLimitRuleGroupProps.property.scope"></a>
+
+```typescript
+public readonly scope: Scope;
+```
+
+- *Type:* <a href="#@gammarer/aws-waf-ip-rate-limit-rule-group.Scope">Scope</a>
 
 ---
 
@@ -930,4 +942,26 @@ public readonly rateLimitCount: number;
 ---
 
 
+
+## Enums <a name="Enums" id="Enums"></a>
+
+### Scope <a name="Scope" id="@gammarer/aws-waf-ip-rate-limit-rule-group.Scope"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@gammarer/aws-waf-ip-rate-limit-rule-group.Scope.GLOBAL">GLOBAL</a></code> | *No description.* |
+| <code><a href="#@gammarer/aws-waf-ip-rate-limit-rule-group.Scope.REGIONAL">REGIONAL</a></code> | *No description.* |
+
+---
+
+##### `GLOBAL` <a name="GLOBAL" id="@gammarer/aws-waf-ip-rate-limit-rule-group.Scope.GLOBAL"></a>
+
+---
+
+
+##### `REGIONAL` <a name="REGIONAL" id="@gammarer/aws-waf-ip-rate-limit-rule-group.Scope.REGIONAL"></a>
+
+---
 

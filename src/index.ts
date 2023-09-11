@@ -3,15 +3,28 @@ import { Construct } from 'constructs';
 
 export interface WafIpRateLimitRuleGroupProps {
   readonly name?: string;
+  readonly scope: Scope;
   readonly rateLimitCount?: number;
 }
 
+export enum Scope {
+  GLOBAL = 'Global',
+  REGIONAL = 'Regional',
+}
+
 export class WafIpRateLimitRuleGroup extends waf.CfnRuleGroup {
-  constructor(scope: Construct, id: string, props?: WafIpRateLimitRuleGroupProps) {
+  constructor(scope: Construct, id: string, props: WafIpRateLimitRuleGroupProps) {
     super(scope, id, {
       name: props?.name,
       description: 'rate limit rule group',
-      scope: 'CLOUDFRONT',
+      scope: ((): string => {
+        switch (props.scope) {
+          case Scope.GLOBAL:
+            return 'CLOUDFRONT';
+          case Scope.REGIONAL:
+            return 'REGIONAL';
+        }
+      })(),
       capacity: 10,
       customResponseBodies: {
         ['ip-restrict']: {

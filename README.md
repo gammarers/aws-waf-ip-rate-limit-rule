@@ -21,10 +21,11 @@ yarn add @gammarer/aws-waf-ip-rate-limit-rule-group
 ## Example
 
 ```typescript
-import { WafRateLimitRuleGroup } from '@gammarer/aws-waf-ip-rate-limit-rule-group';
+import { Scope, WafRateLimitRuleGroup } from '@gammarer/aws-waf-ip-rate-limit-rule-group';
 
 new WafIpRateLimitRuleGroup(stack, 'WafIpRateLimitRuleGroup', {
   name: 'rate-limit-rule-group',
+  scope: Scope.REGIONAL,
   rateLimitCount: 3000, // default 1000
 });
 

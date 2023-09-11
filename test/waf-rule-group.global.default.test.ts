@@ -1,9 +1,9 @@
 import { App, Stack } from 'aws-cdk-lib';
 import { Match, Template } from 'aws-cdk-lib/assertions';
 import * as waf from 'aws-cdk-lib/aws-wafv2';
-import { WafIpRateLimitRuleGroup } from '../src';
+import { Scope, WafIpRateLimitRuleGroup } from '../src';
 
-describe('Web Acl rule specific group testing', () => {
+describe('Web Acl rule default group testing', () => {
 
   const app = new App();
   const stack = new Stack(app, 'TestingStack', {
@@ -14,8 +14,7 @@ describe('Web Acl rule specific group testing', () => {
   });
 
   const ruleGroup = new WafIpRateLimitRuleGroup(stack, 'WafIpRateLimitRuleGroup', {
-    name: 'rate-limit-rule-group',
-    rateLimitCount: 3000,
+    scope: Scope.GLOBAL,
   });
 
   it('Is Waf RuleGroup', () => {
@@ -26,7 +25,6 @@ describe('Web Acl rule specific group testing', () => {
 
   it('Should have WAF Rule Group', () => {
     template.hasResourceProperties('AWS::WAFv2::RuleGroup', Match.objectEquals({
-      Name: Match.anyValue(),
       Description: 'rate limit rule group',
       Scope: 'CLOUDFRONT',
       Capacity: 10,
@@ -56,7 +54,7 @@ describe('Web Acl rule specific group testing', () => {
           Statement: {
             RateBasedStatement: {
               AggregateKeyType: 'IP',
-              Limit: 3000,
+              Limit: 1000,
             },
           },
         },
