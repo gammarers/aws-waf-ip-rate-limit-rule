@@ -11,9 +11,10 @@ const project = new awscdk.AwsCdkConstructLibrary({
   repositoryUrl: 'https://github.com/yicr/aws-waf-ip-rate-limit-rule-group.git',
   description: 'This is an AWS CDK Construct for Rate Limit Rule on WAF V2.',
   keywords: ['aws', 'cdk', 'aws-cdk', 'waf', 'acl', 'rate'],
+  //majorVersion: 0,
   releaseToNpm: true,
   npmAccess: javascript.NpmAccess.PUBLIC,
-  stability: 'experimental', // stable
+  stability: 'stable',
   minNodeVersion: '16.0.0',
   workflowNodeVersion: '18.17.1',
   depsUpgradeOptions: {
@@ -25,6 +26,10 @@ const project = new awscdk.AwsCdkConstructLibrary({
   autoApproveOptions: {
     secret: 'GITHUB_TOKEN',
     allowedUsernames: ['yicr'],
+  },
+  publishToPypi: {
+    distName: 'gammarer.aws-waf-ip-rate-limit-rule-group',
+    module: 'gammarer.aws_waf_ip_rate_limit_rule_group',
   },
 });
 project.synth();
