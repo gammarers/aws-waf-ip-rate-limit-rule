@@ -11,10 +11,11 @@ const project = new awscdk.AwsCdkConstructLibrary({
   repositoryUrl: 'https://github.com/yicr/aws-waf-ip-rate-limit-rule-group.git',
   description: 'This is an AWS CDK Construct for Rate Limit Rule on WAF V2.',
   keywords: ['aws', 'cdk', 'aws-cdk', 'waf', 'acl', 'rate'],
+  majorVersion: 0,
   releaseToNpm: true,
   npmAccess: javascript.NpmAccess.PUBLIC,
-  stability: 'experimental', // stable
-  minNodeVersion: '16.0.0',
+  stability: 'stable',
+  minNodeVersion: '18.0.0',
   workflowNodeVersion: '18.17.1',
   depsUpgradeOptions: {
     workflowOptions: {
@@ -25,6 +26,20 @@ const project = new awscdk.AwsCdkConstructLibrary({
   autoApproveOptions: {
     secret: 'GITHUB_TOKEN',
     allowedUsernames: ['yicr'],
+  },
+  publishToPypi: {
+    distName: 'gammarer.aws-waf-ip-rate-limit-rule-group',
+    module: 'gammarer.aws_waf_ip_rate_limit_rule_group',
+  },
+  publishToMaven: {
+    mavenGroupId: 'com.gammarer',
+    javaPackage: 'com.gammarer.cdk.aws.waf_ip_rate_limit_rule_group',
+    mavenArtifactId: 'aws-waf-ip-rate-limit-rule-group',
+    mavenEndpoint: 'https://s01.oss.sonatype.org',
+  },
+  publishToNuget: {
+    dotNetNamespace: 'Gammarer.CDK.AWS',
+    packageId: 'Gammarer.CDK.AWS.WafIpRateLimitRuleGroup',
   },
 });
 project.synth();
