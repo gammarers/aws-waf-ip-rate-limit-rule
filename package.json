@@ -3,7 +3,7 @@
   "description": "This is an AWS CDK Construct for Rate Limit Rule on WAF V2.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yicr/aws-waf-ip-rate-limit-rule-group.git"
+    "url": "https://github.com/gammarer/aws-waf-ip-rate-limit-rule-group.git"
   },
   "scripts": {
     "build": "npx projen build",
