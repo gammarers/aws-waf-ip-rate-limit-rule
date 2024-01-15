@@ -1,30 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Web Acl rule default group testing Should match snapshot 1`] = `
-Object {
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+{
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "WafIpRateLimitRuleGroup": Object {
-      "Properties": Object {
+  "Resources": {
+    "WafIpRateLimitRuleGroup": {
+      "Properties": {
         "Capacity": 10,
-        "CustomResponseBodies": Object {
-          "ip-restrict": Object {
+        "CustomResponseBodies": {
+          "ip-restrict": {
             "Content": "Sorry, You Are Not Allowed to Access This Service.",
             "ContentType": "TEXT_PLAIN",
           },
         },
         "Description": "rate limit rule group",
-        "Rules": Array [
-          Object {
-            "Action": Object {
-              "Block": Object {
-                "CustomResponse": Object {
+        "Rules": [
+          {
+            "Action": {
+              "Block": {
+                "CustomResponse": {
                   "CustomResponseBodyKey": "ip-restrict",
                   "ResponseCode": 403,
                 },
@@ -32,13 +32,13 @@ Object {
             },
             "Name": "rate-limit-rule",
             "Priority": 10,
-            "Statement": Object {
-              "RateBasedStatement": Object {
+            "Statement": {
+              "RateBasedStatement": {
                 "AggregateKeyType": "IP",
                 "Limit": 1000,
               },
             },
-            "VisibilityConfig": Object {
+            "VisibilityConfig": {
               "CloudWatchMetricsEnabled": true,
               "MetricName": "WafRateLimitRule",
               "SampledRequestsEnabled": true,
@@ -46,7 +46,7 @@ Object {
           },
         ],
         "Scope": "CLOUDFRONT",
-        "VisibilityConfig": Object {
+        "VisibilityConfig": {
           "CloudWatchMetricsEnabled": true,
           "MetricName": "RateLimitRule",
           "SampledRequestsEnabled": true,
@@ -55,22 +55,22 @@ Object {
       "Type": "AWS::WAFv2::RuleGroup",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],
