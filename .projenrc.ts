@@ -4,6 +4,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   authorAddress: 'yicr@users.noreply.github.com',
   cdkVersion: '2.80.0',
   typescriptVersion: '5.1.x',
+  constructsVersion: '10.0.5',
   jsiiVersion: '5.1.x',
   defaultReleaseBranch: 'main',
   name: '@gammarer/aws-waf-ip-rate-limit-rule-group',
