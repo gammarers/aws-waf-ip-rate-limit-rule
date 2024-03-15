@@ -1,3 +1,5 @@
+# AWS WAF(V2) IP Rete Limit Rule Group
+
 [![GitHub](https://img.shields.io/github/license/gammarer/aws-waf-ip-rate-limit-rule-group?style=flat-square)](https://github.com/gammarer/aws-waf-ip-rate-limit-rule-group/blob/main/LICENSE)
 [![npm (scoped)](https://img.shields.io/npm/v/@gammarer/aws-waf-ip-rate-limit-rule-group?style=flat-square)](https://www.npmjs.com/package/@gammarer/aws-waf-ip-rate-limit-rule-group)
 [![PyPI](https://img.shields.io/pypi/v/gammarer.aws-waf-ip-rate-limit-rule-group?style=flat-square)](https://pypi.org/project/gammarer.aws-waf-ip-rate-limit-rule-group/)
@@ -6,7 +8,7 @@
 [![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/gammarer/aws-waf-ip-rate-limit-rule-group/release.yml?branch=main&label=release&style=flat-square)](https://github.com/gammarer/aws-waf-ip-rate-limit-rule-group/actions/workflows/release.yml)
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/gammarer/aws-waf-ip-rate-limit-rule-group?sort=semver&style=flat-square)](https://github.com/gammarer/aws-waf-ip-rate-limit-rule-group/releases)
 
-# AWS WAF(V2) IP Rete Limit Rule Group
+[![View on Construct Hub](https://constructs.dev/badge?package=@gammarer/aws-waf-ip-rate-limit-rule-group)](https://constructs.dev/packages/@gammarer/aws-waf-ip-rate-limit-rule-group)
 
 This is an AWS CDK Construct for IP Rate Limit Rule on WAF V2
 
@@ -65,5 +67,3 @@ new WafIpRateLimitRuleGroup(stack, 'WafIpRateLimitRuleGroup', {
 ## License
 
 This project is licensed under the Apache-2.0 License.
-
-
