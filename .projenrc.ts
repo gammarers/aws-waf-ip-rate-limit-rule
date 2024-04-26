@@ -32,12 +32,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
     distName: 'gammarers.aws-waf-ip-rate-limit-rule-group',
     module: 'gammarers.aws_waf_ip_rate_limit_rule_group',
   },
-  publishToMaven: {
-    mavenGroupId: 'com.gammarer',
-    javaPackage: 'com.gammarer.cdk.aws.waf_ip_rate_limit_rule_group',
-    mavenArtifactId: 'aws-waf-ip-rate-limit-rule-group',
-    mavenEndpoint: 'https://s01.oss.sonatype.org',
-  },
   publishToNuget: {
     dotNetNamespace: 'Gammarer.CDK.AWS',
     packageId: 'Gammarer.CDK.AWS.WafIpRateLimitRuleGroup',
