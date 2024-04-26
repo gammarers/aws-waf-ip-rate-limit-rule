@@ -132,8 +132,8 @@
         "module": "gammarers.aws_waf_ip_rate_limit_rule_group"
       },
       "dotnet": {
-        "namespace": "Gammarer.CDK.AWS",
-        "packageId": "Gammarer.CDK.AWS.WafIpRateLimitRuleGroup"
+        "namespace": "Gammarers.CDK.AWS",
+        "packageId": "Gammarers.CDK.AWS.WafIpRateLimitRuleGroup"
       }
     },
     "tsc": {

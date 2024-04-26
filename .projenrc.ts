@@ -33,8 +33,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
     module: 'gammarers.aws_waf_ip_rate_limit_rule_group',
   },
   publishToNuget: {
-    dotNetNamespace: 'Gammarer.CDK.AWS',
-    packageId: 'Gammarer.CDK.AWS.WafIpRateLimitRuleGroup',
+    dotNetNamespace: 'Gammarers.CDK.AWS',
+    packageId: 'Gammarers.CDK.AWS.WafIpRateLimitRuleGroup',
   },
 });
 project.synth();
