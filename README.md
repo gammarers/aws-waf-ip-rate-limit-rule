@@ -22,9 +22,32 @@ This construct creating resource list.
 ### TypeScript
 
 ```shell
-npm install @gammarers/aws-waf-ip-rate-limit-rule-group
 # or
+
+```
+
+#### install by npm
+
+```shell
+npm install @gammarers/aws-waf-ip-rate-limit-rule-group
+```
+
+#### install by yarn
+
+```shell
 yarn add @gammarers/aws-waf-ip-rate-limit-rule-group
+```
+
+#### install by pnpm
+
+```shell
+pnpm add @gammarers/aws-waf-ip-rate-limit-rule-group
+```
+
+#### install by bun
+
+```shell
+bun add @gammarers/aws-waf-ip-rate-limit-rule-group
 ```
 
 ### Python
