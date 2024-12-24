@@ -1,15 +1,14 @@
-# AWS WAF(V2) IP Rete Limit Rule Group
+# AWS WAF(V2) IP Rete Limit Rule
 
-[![GitHub](https://img.shields.io/github/license/gammarers/aws-waf-ip-rate-limit-rule-group?style=flat-square)](https://github.com/gammarers/aws-waf-ip-rate-limit-rule-group/blob/main/LICENSE)
-[![npm (scoped)](https://img.shields.io/npm/v/@gammarers/aws-waf-ip-rate-limit-rule-group?style=flat-square)](https://www.npmjs.com/package/@gammarers/aws-waf-ip-rate-limit-rule-group)
-[![PyPI](https://img.shields.io/pypi/v/gammarers.aws-waf-ip-rate-limit-rule-group?style=flat-square)](https://pypi.org/project/gammarers.aws-waf-ip-rate-limit-rule-group/)
-[![Nuget](https://img.shields.io/nuget/v/Gammarers.CDK.AWS.WafIpRateLimitRuleGroup?style=flat-square)](https://www.nuget.org/packages/Gammarers.CDK.AWS.WafIpRateLimitRuleGroup/)
-[![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/gammarers/aws-waf-ip-rate-limit-rule-group/release.yml?branch=main&label=release&style=flat-square)](https://github.com/gammarers/aws-waf-ip-rate-limit-rule-group/actions/workflows/release.yml)
-[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/gammarers/aws-waf-ip-rate-limit-rule-group?sort=semver&style=flat-square)](https://github.com/gammarers/aws-waf-ip-rate-limit-rule-group/releases)
+[![GitHub](https://img.shields.io/github/license/gammarers/aws-waf-ip-rate-limit-rule?style=flat-square)](https://github.com/gammarers/aws-waf-ip-rate-limit-rule/blob/main/LICENSE)
+[![npm (scoped)](https://img.shields.io/npm/v/@gammarers/aws-waf-ip-rate-limit-rule?style=flat-square)](https://www.npmjs.com/package/@gammarers/aws-waf-ip-rate-limit-rule)
+[![PyPI](https://img.shields.io/pypi/v/gammarers.aws-waf-ip-rate-limit-rule?style=flat-square)](https://pypi.org/project/gammarers.aws-waf-ip-rate-limit-rule/)
+[![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/gammarers/aws-waf-ip-rate-limit-rule/release.yml?branch=main&label=release&style=flat-square)](https://github.com/gammarers/aws-waf-ip-rate-limit-rule/actions/workflows/release.yml)
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/gammarers/aws-waf-ip-rate-limit-rule?sort=semver&style=flat-square)](https://github.com/gammarers/aws-waf-ip-rate-limit-rule/releases)
 
-[![View on Construct Hub](https://constructs.dev/badge?package=@gammarers/aws-waf-ip-rate-limit-rule-group)](https://constructs.dev/packages/@gammarers/aws-waf-ip-rate-limit-rule-group)
+[![View on Construct Hub](https://constructs.dev/badge?package=@gammarers/aws-waf-ip-rate-limit-rule)](https://constructs.dev/packages/@gammarers/aws-waf-ip-rate-limit-rule)
 
-This is an AWS CDK Construct for IP Rate Limit Rule on WAF V2
+This is an AWS CDK WAF IP Rate Limit Rule
 
 ## Resources
 
@@ -21,58 +20,48 @@ This construct creating resource list.
 
 ### TypeScript
 
-```shell
-# or
-
-```
-
 #### install by npm
 
 ```shell
-npm install @gammarers/aws-waf-ip-rate-limit-rule-group
+npm install @gammarers/aws-waf-ip-rate-limit-rule
 ```
 
 #### install by yarn
 
 ```shell
-yarn add @gammarers/aws-waf-ip-rate-limit-rule-group
-```
-
-#### install by pnpm
-
-```shell
-pnpm add @gammarers/aws-waf-ip-rate-limit-rule-group
-```
-
-#### install by bun
-
-```shell
-bun add @gammarers/aws-waf-ip-rate-limit-rule-group
+yarn add @gammarers/aws-waf-ip-rate-limit-rule
 ```
 
 ### Python
 
 ```shell
-pip install gammarers.aws-waf-ip-rate-limit-rule-group
-```
-
-### C# / .Net
-
-```shell
-dotnet add package Gammarers.CDK.AWS.WafIpRateLimitRuleGroup
+pip install gammarers.aws-waf-ip-rate-limit-rule
 ```
 
 ## Example
 
 ```typescript
-import { Scope, WafRateLimitRuleGroup } from '@gammarers/aws-waf-ip-rate-limit-rule-group';
+import { WAFIPRateLimitRule } from '@gammarers/aws-waf-ip-rate-limit-rule';
 
-new WafIpRateLimitRuleGroup(stack, 'WafIpRateLimitRuleGroup', {
-  name: 'rate-limit-rule-group',
-  scope: Scope.REGIONAL,
-  rateLimitCount: 3000, // default 1000
+const ipRateLimitRule = new WAFIPRateLimitRule({
+  rateLimit: 100,
 });
 
+new wafv2.CfnWebACL(stack, 'WebACL', {
+  defaultAction: { allow: {} },
+  scope: 'CLOUD_FRONT',
+  name: 'WebAclWithCustomRules',
+  visibilityConfig: {
+    cloudWatchMetricsEnabled: true,
+    metricName: 'WebAclMetric',
+    sampledRequestsEnabled: true,
+  },
+  rules: [
+    ipRateLimitRule.blockRule({
+      priority: 1,
+    }),
+  ],
+});
 ```
 
 ## License
