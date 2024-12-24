@@ -10,49 +10,40 @@ exports[`Web Acl rule default group testing Should match snapshot 1`] = `
     },
   },
   "Resources": {
-    "WafIpRateLimitRuleGroup": {
+    "WebACL": {
       "Properties": {
-        "Capacity": 10,
-        "CustomResponseBodies": {
-          "ip-restrict": {
-            "Content": "Sorry, You Are Not Allowed to Access This Service.",
-            "ContentType": "TEXT_PLAIN",
-          },
+        "DefaultAction": {
+          "Allow": {},
         },
-        "Description": "rate limit rule group",
+        "Name": "WebAclWithCustomRules",
         "Rules": [
           {
             "Action": {
-              "Block": {
-                "CustomResponse": {
-                  "CustomResponseBodyKey": "ip-restrict",
-                  "ResponseCode": 403,
-                },
-              },
+              "Block": {},
             },
-            "Name": "rate-limit-rule",
-            "Priority": 10,
+            "Name": "block-rate-limit-rule",
+            "Priority": 1,
             "Statement": {
               "RateBasedStatement": {
                 "AggregateKeyType": "IP",
-                "Limit": 1000,
+                "Limit": 100,
               },
             },
             "VisibilityConfig": {
               "CloudWatchMetricsEnabled": true,
-              "MetricName": "WafRateLimitRule",
+              "MetricName": "BlockRateLimitRuleMetric",
               "SampledRequestsEnabled": true,
             },
           },
         ],
-        "Scope": "REGIONAL",
+        "Scope": "CLOUD_FRONT",
         "VisibilityConfig": {
           "CloudWatchMetricsEnabled": true,
-          "MetricName": "RateLimitRule",
+          "MetricName": "WebAclMetric",
           "SampledRequestsEnabled": true,
         },
       },
-      "Type": "AWS::WAFv2::RuleGroup",
+      "Type": "AWS::WAFv2::WebACL",
     },
   },
   "Rules": {
