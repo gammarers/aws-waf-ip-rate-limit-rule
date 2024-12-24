@@ -12,7 +12,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   repositoryUrl: 'https://github.com/gammarers/aws-waf-ip-rate-limit-rule.git',
   description: 'This is an AWS CDK Rate Limit Rule on WAF V2.',
   keywords: ['aws', 'cdk', 'aws-cdk', 'waf', 'acl', 'rate'],
-  majorVersion: 1,
+  majorVersion: 2,
   releaseToNpm: true,
   npmAccess: javascript.NpmAccess.PUBLIC,
   stability: 'stable',
